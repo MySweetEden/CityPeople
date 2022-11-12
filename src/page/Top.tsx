@@ -6,6 +6,7 @@ import OCR from "../util/OCR";
 function Top() {
   return (
     <div className="Top">
+      <Menu />
       <div>
         <div className="font-bold p-2 text-xl">
           <span className="block leading-4">健診</span>
@@ -41,7 +42,6 @@ function Top() {
           </div>
         </div>
       </main>
-      <Menu />
     </div>
   );
 }

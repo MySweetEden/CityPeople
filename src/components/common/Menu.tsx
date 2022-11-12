@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import BeginnerSVG from "../../assets/menu/beginner.svg";
+import Building from "../../assets/common/building01.png";
 import HistorySVG from "../../assets/menu/favorite.svg";
 import MainSVG from "../../assets/menu/main.svg";
 
@@ -22,44 +22,36 @@ const Menu = () => {
     setPath(pathname);
   }, [pathname]);
   return (
-    <div className="bg-green-700 w-full fixed bottom-0 h-16 items-center">
-      <div className="flex h-full divide-x-4 divide-gray-200/50">
-        <Link
-          to="/info"
-          className="py-2 inline-flex items-center justify-center text-center w-1/3"
-        >
-          <div className="">
-            <img
-              src={BeginnerSVG}
-              className={isInfo() ? "h-7 m-auto" : "h-5 m-auto"}
-            />
-            <p className="text-white font-bold text-xs">使い方</p>
-          </div>
-        </Link>
-        <Link
-          to="/"
-          className="py-2 inline-flex items-center justify-center text-center w-1/3"
-        >
-          <div className="">
-            <img
-              src={MainSVG}
-              className={isMain() ? "h-7 m-auto" : "h-5 m-auto"}
-            />
-            <p className="text-white font-bold text-xs mt-1">TOP</p>
-          </div>
-        </Link>
-        <Link
-          to="/history"
-          className="py-2 inline-flex items-center justify-center text-center w-1/3"
-        >
-          <div className="">
-            <img
-              src={HistorySVG}
-              className={isHistory() ? "h-7 m-auto" : "h-5 m-auto"}
-            />
-            <p className="text-white font-bold text-xs">履歴</p>
-          </div>
-        </Link>
+    <div className="bg-white w-full fixed top-0 h-16 items-center z-10">
+      <div className="flex flex-start border border-gray-900">
+        <div className="flex h-full -mb-[1px]">
+          <Link
+            to="/"
+            className="py-2 inline-flex items-center justify-center text-center w-52 border-r border-gray-900"
+          >
+            <div className="flex justify-center px-2">
+              <p className="text-gray-800 font-bold text-xl">都会マウント</p>
+            </div>
+          </Link>
+          <Link
+            to="/"
+            className="py-2 inline-flex items-center justify-center text-center w-52 border-r border-gray-900"
+          >
+            <div className="flex flex-col justify-center px-2">
+              <p className="text-gray-800 font-bold text-xl">Detail</p>
+              <p className="text-gray-800 text-sx">詳細</p>
+            </div>
+          </Link>
+          <Link
+            to="/"
+            className="py-2 inline-flex items-center justify-center text-center w-52 border-r border-gray-900"
+          >
+            <div className="flex flex-col justify-center px-2">
+              <p className="text-gray-800 font-bold text-xl">Compare</p>
+              <p className="text-gray-800 text-sx">比較</p>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
