@@ -133,3 +133,26 @@ ul {
   top: 0;
   background-color: #333;
 }
+
+.selectBtn {
+  color: #fff;
+  background-color: #333;
+  display: inline-block;
+  width: 200px;
+  height: 3.9rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 4rem;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  line-height: 13px;
+  overflow: hidden;
+}
+
+.bg-pen {
+  background-color: #83cfce;
+  background-image: linear-gradient(#fff 1px, transparent 0),
+    linear-gradient(90deg, #fff 1px, transparent 0);
+  background-size: 60px 60px;
+}

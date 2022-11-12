@@ -14,7 +14,6 @@ const Sidebar = ({ open, handelClick }: Props) => {
       className={`border-r border-gray-900 mt-16 z-40 h-full p-4 overflow-y-auto bg-white w-[40vw] dark:bg-gray-800 ${
         open ? "fixed" : "hidden"
       }`}
-      aria-labelledby="drawer-navigation-label"
     >
       <h5
         id="drawer-navigation-label"
@@ -26,11 +25,11 @@ const Sidebar = ({ open, handelClick }: Props) => {
       <button
         type="button"
         onClick={handelClick}
-        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        className="text-gray-600 bg-transparent hover:bg-gray-200 hover:border-transparent text-xl p-1.5 absolute top-2.5 right-2.5 inline-flex items-center"
       >
         <svg
           aria-hidden="true"
-          className="w-5 h-5"
+          className="w-6 h-6"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
