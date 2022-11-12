@@ -29,7 +29,7 @@ body {
   color: #333;
   line-height: 1.6;
   word-wrap: break-word;
-  background-color: #f5f4e4;
+  background-color: #fff;
 }
 
 h1 {
@@ -85,4 +85,51 @@ ul {
 
 .fs-14 {
   font-size: 14px;
+}
+
+.button {
+  display: inline-block;
+  width: 200px;
+  height: 3.9rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 4rem;
+  outline: none;
+}
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: "";
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  color: #333;
+  line-height: 13px;
+  overflow: hidden;
+}
+.button:hover {
+  color: #fff;
+}
+.button::after {
+  top: -100%;
+  width: 100%;
+  height: 100%;
+}
+.button:hover::after {
+  top: 0;
+  background-color: #333;
 }
