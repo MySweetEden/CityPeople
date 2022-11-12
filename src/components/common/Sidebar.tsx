@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import Chart from "./Chart";
+import jsonData from "../../assets/data_url_color.json";
 
 type Props = {
   open: boolean;
@@ -22,7 +23,7 @@ const Sidebar = ({ open, handelClick }: Props) => {
       >
         データ詳細
       </h5>
-      <Chart />
+      <Chart cityData={jsonData['aichi']} />
       <button
         type="button"
         onClick={handelClick}

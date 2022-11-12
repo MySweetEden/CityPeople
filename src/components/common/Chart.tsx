@@ -26,13 +26,15 @@ type Props = {
   // データ
 };
 
-const Chart = () => {
+const Chart = (cityData: any) => {
+  let jsonCityData = cityData['cityData'];
+
   const data = {
-    labels: ["Thing 1", "Thing 2", "Thing 3"],
+    labels: ["建築物圧迫感", "商業施設比率", "道路比率"],
     datasets: [
       {
         label: "# of Votes",
-        data: [2, 3, 3],
+        data: [jsonCityData['height'], jsonCityData['commerce'], jsonCityData['street']],
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         borderColor: "rgba(255, 99, 132, 1)",
         borderWidth: 1,
@@ -41,7 +43,7 @@ const Chart = () => {
   };
   return (
     <div className="">
-      <h5>都会マウント指数</h5>
+      <h2>都会マウント指数{Math.round(jsonCityData['dev']*100)/100}</h2>
       <Radar data={data} />
     </div>
   );
