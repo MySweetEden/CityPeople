@@ -13,7 +13,7 @@ const Topbar = ({ selectCity, handleReset }: Props) => {
       <h5 className="text-3xl font-semibold text-gray-900 my-10">
         マウントしたい都市を選択してください
         <div className="mx-auto bg-white border-2 border-gray-900 rounded-xl h-[40vh] mt-5 p-4">
-          <div className="flex flex-col mx-auto">
+          <div className="flex flex-col mx-auto pt-10">
             {selectCity.map((city, index) => (
               <Link
                 to={`/detail/${city.key}`}

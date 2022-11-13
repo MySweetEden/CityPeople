@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Building from "../../assets/common/building01.png";
 import HistorySVG from "../../assets/menu/favorite.svg";
 import MainSVG from "../../assets/menu/main.svg";
-import Data from "../../assets/data/list.json";
+import Data from "../../assets/data/data_url_color.json";
 
 const Menu = () => {
   const [path, setPath] = useState<string>("");
