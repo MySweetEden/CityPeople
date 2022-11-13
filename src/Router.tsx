@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Top from "./page/Top";
-import Info from "./page/Info";
+import Compare from "./page/Compare";
 import History from "./page/History";
 import Detail from "./page/Detail";
 import App from "./App";
@@ -16,15 +16,11 @@ const router = createBrowserRouter([
         element: <Top />,
       },
       {
-        path: "info",
-        element: <Info />,
+        path: "compare",
+        element: <Compare />,
       },
       {
-        path: "history",
-        element: <History />,
-      },
-      {
-        path: "detail/:itemId",
+        path: "detail",
         element: <Detail />,
       },
     ],
