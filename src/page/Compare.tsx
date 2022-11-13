@@ -2,107 +2,107 @@ import { useContext } from "react";
 import { UserData } from "../App";
 import Menu from "../components/common/Menu";
 import { nyosan } from "../config/common";
-import TitlePng from "../assets/compare/title.png";
+import City1Png from "../assets/compare/city1.png";
+import City2Png from "../assets/compare/city2.png";
+import SyutyuPng from "../assets/compare/syutyu.png";
+import Data from "../assets/data/data_url_color.json";
+import { useLocation } from "react-router-dom";
+import AnimatedNumber from "react-animated-number";
+
+interface State {
+  city1: string;
+  city2: string;
+}
 
 function Compare() {
   const { item } = useContext(UserData);
   const n = item.find((value) => {
     return value.isRed;
   });
+  const location = useLocation();
+  const { city1, city2 } = location.state as State;
 
   return (
     <div className="Compare">
       <Menu />
-      <main className="h-full mt-[4rem]">
-        <div className="flex bg-pen">
-          <div className="text-right w-1/3  m-auto pl-5 text-white">
-            <span className="text-4xl font-bold rounded-full bg-[#3D3B61] p-4">
+      <main className="h-full mt-[4rem] bg-[#F9ED52]">
+        <h1 className="text-center pt-5 text-4xl font-bold text-gray-900">
+          勝つのはどっちだ！？
+        </h1>
+        <div className="flex flex-col">
+          <div className="fadeInLeft relative text-right w-1/2 m-auto pl-5 text-white my-10">
+            <img src={City1Png} />
+            <span className="absolute text-4xl font-bold  text-white top-[15%] left-[20%]">
+              宮城県
+            </span>
+            <br />
+            <span className="absolute text-[4rem] font-bold  text-white top-[30%] left-[18%]">
               仙台市
             </span>
+            <div className="absolute text-[4rem] font-bold  text-white top-[8%] left-[52%] text-center">
+              <p className="text-xl">都市マウント指数</p>
+              <AnimatedNumber
+                component="text"
+                value={45.3}
+                style={{
+                  transition: "0.8s ease-out",
+                  fontSize: 80,
+                  transitionProperty: "background-color, color, opacity",
+                }}
+                frameStyle={(perc) =>
+                  perc === 500 ? {} : { backgroundColor: "#FF5EAF" }
+                }
+                duration={2000}
+                stepPrecision={1}
+              />
+            </div>
+            {/* 偏差値が高かったら */}
+            {true && (
+              <img
+                className="showSYUTYU absolute w-1/2 top-0 left-[37%] text-center"
+                src={SyutyuPng}
+              />
+            )}
           </div>
-          <img src={TitlePng} className="w-1/3 m-auto" />
-          <div className="text-left w-1/3  m-auto pl-5 text-white">
-            <span className="text-4xl font-bold rounded-full bg-[#22B6B3] p-4">
-              金沢市
+          <div className="font-bold text-4xl text-center mb-10">VS.</div>
+          <div className="fadeInRight relative text-right w-1/2 m-auto pl-5 text-white">
+            <img src={City2Png} />
+            <span className="absolute text-4xl font-bold  text-white top-[15%] left-[20%]">
+              宮城県
             </span>
+            <br />
+            <span className="absolute text-[4rem] font-bold  text-white top-[30%] left-[18%]">
+              仙台市
+            </span>
+            <div className="absolute text-[4rem] font-bold  text-white top-[8%] left-[52%] text-center">
+              <p className="text-xl">都市マウント指数</p>
+              <AnimatedNumber
+                component="text"
+                value={45.3}
+                style={{
+                  transition: "0.8s ease-out",
+                  fontSize: 80,
+                  transitionProperty: "background-color, color, opacity",
+                }}
+                frameStyle={(perc) =>
+                  perc === 500 ? {} : { backgroundColor: "#68B7F5" }
+                }
+                duration={2500}
+                stepPrecision={1}
+              />
+            </div>
+            {/* 偏差値が高かったら */}
+            {true && (
+              <img
+                className="showSYUTYU absolute w-1/2 top-0 left-[37%] text-center"
+                src={SyutyuPng}
+              />
+            )}
           </div>
         </div>
-        <div className="p-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-900">診断結果の詳細</h1>
-        </div>
-        <div className="w-[94%] mx-auto">
-          <div className="block mx-auto mt-6 p-4 bg-white rounded-lg border border-gray-200">
-            <p className="text-lg">
-              あなたの{n?.name} : {n?.value} ({n?.unit})
-            </p>
-            <ul className="divide-y divide-gray-200 my-4">
-              <li className="py-3">
-                <p className="w-4/5 text-base text-gray-900">
-                  正常値を超えています。
-                </p>
-                <p className="w-4/5 text-base text-gray-900">放置すると.....</p>
-                <p className="mt-5">
-                  <span className="text-5xl text-red-500">
-                    「{nyosan.ill[0].name}」
-                  </span>
-                  になります。
-                </p>
-              </li>
-              <li className="p-3 flex">
-                <p className="w-[94%] text-base text-gray-900 mx-auto">
-                  {nyosan.ill[0].description}
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="w-[94%] mx-auto">
-          <div className="block mx-auto mt-6 p-4 bg-white rounded-lg border border-gray-200">
-            <p className="text-3xl mb-3">警告</p>
-            <div>
-              <img src={nyosan.ill[0].caution.level.image} alt="説明画像" />
-            </div>
-            <p className="mt-5">{nyosan.ill[0].caution.description}</p>
-            <p className="mt-5 text-xl">
-              {nyosan.ill[0].caution.level.name}レベル
-            </p>
-            <div className="w-[94%] m-auto">
-              <div className="my-4 flex">
-                <ul className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => {
-                    if (i <= nyosan.ill[0].caution.level.star) {
-                      return (
-                        <li className="p-2" key={i}>
-                          <img src={"/img/star_icon.png"} alt="星の画像" />
-                        </li>
-                      );
-                    }
-                    return (
-                      <li className="p-2" key={i}>
-                        <img src={"/img/star_clear_icon.png"} alt="星の画像" />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="block mx-auto mt-6 p-4 bg-white rounded-lg border border-gray-200">
-            <div className="flex text">
-              <p className="text-2xl mr-3">改善案</p>
-              <p className="font-bold text-white text-xl bg-green-600/50 rounded-full w-10 h-10 text-center pt-1">
-                {nyosan.nextStep.category}
-              </p>
-            </div>
-            <p className="mt-3">{nyosan.nextStep.description}</p>
-            <div className="w-[94%] m-auto mt-3">
-              <img src={nyosan.nextStep.img[0]} alt="グッドフード画像" />
-            </div>
-            <div className="w-[94%] m-auto mt-3">
-              <img src={nyosan.nextStep.img[1]} alt="バッドフード画像" />
-            </div>
-          </div>
-        </div>
+
+        <div className="p-8 text-center"></div>
+        <div className="w-[94%] mx-auto"></div>
       </main>
     </div>
   );

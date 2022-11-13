@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import Data from "../../assets/data/data_url_color.json";
 
 import Chart from "./Chart";
 
@@ -8,20 +9,21 @@ type Props = {
   handelClick: () => void;
 };
 const Sidebar = ({ open, handelClick }: Props) => {
+  let { city } = useParams();
+  console.log(city);
   return (
     <div
       id="drawer-navigation"
-      className={`border-r border-gray-900 mt-16 z-40 h-full p-4 overflow-y-auto bg-white w-[40vw] dark:bg-gray-800 ${
+      className={`border-r border-gray-900 mt-16 z-40 h-full p-4 overflow-y-auto bg-[#68B7F5]  w-[40vw] dark:bg-gray-800 ${
         open ? "fixed" : "hidden"
       }`}
     >
-      <h5
-        id="drawer-navigation-label"
-        className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
-      >
-        データ詳細
+      <h5 id="drawer-navigation-label" className="my-4 text-2xl font-bold">
+        都会マウント指数
+        <br />
+        <span className="pl-3 pt-2 text-5xl">{Data[city].dev}</span>
       </h5>
-      <Chart />
+      <Chart city1={Data[city]} />
       <button
         type="button"
         onClick={handelClick}

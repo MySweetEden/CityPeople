@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <Compare />,
       },
       {
-        path: "detail",
+        path: "detail/:city",
         element: <Detail />,
       },
     ],

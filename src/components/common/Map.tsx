@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
-import Data from "../../assets/data/list.json";
+import Data from "../../assets/data/data_url_color.json";
 
 const containerStyle = {
   width: "60vw",
@@ -8,8 +8,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 40,
-  lng: 135,
+  lat: 39.5,
+  lng: 137,
 };
 
 const mapStyles = [
@@ -63,7 +63,7 @@ function Map({ selectCity, setSelectCity }: Props) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={5.7}
+        zoom={6}
         options={{
           styles: mapStyles,
         }}

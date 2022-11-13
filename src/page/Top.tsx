@@ -14,7 +14,7 @@ function Top() {
     <div className="Top">
       <Menu />
       <div className="flex">
-        <Topbar selectCity={selectCity} />
+        <Topbar handleReset={() => setSelectCity([])} selectCity={selectCity} />
         <main className="h-full flex justify-center">
           <Map selectCity={selectCity} setSelectCity={setSelectCity} />
         </main>

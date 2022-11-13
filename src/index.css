@@ -93,7 +93,6 @@ ul {
   height: 3.9rem;
   text-align: center;
   text-decoration: none;
-  line-height: 4rem;
   outline: none;
 }
 .button::before,
@@ -154,5 +153,50 @@ ul {
   background-color: #83cfce;
   background-image: linear-gradient(#fff 1px, transparent 0),
     linear-gradient(90deg, #fff 1px, transparent 0);
-  background-size: 60px 60px;
+  background-size: 0px 60px;
+}
+
+.fadeInLeft {
+  animation: fadeInLeft 0.4s ease-in 1 backwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(10vw);
+  }
+}
+
+.fadeInRight {
+  animation: fadeInRight 0.4s 0.4s ease-in 1 backwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.showSYUTYU {
+  animation: showSYUTYU 0.2s 3s ease-in 1 backwards;
+}
+
+@keyframes showSYUTYU {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
